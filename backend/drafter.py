@@ -1,28 +1,35 @@
-def generate_complaint_letter(worker_name: str, sector: str, area: str, days_worked: int, hours_per_day: float, amount_paid: float, expected_pay: float, wage_stolen: float):
-    letter = f"""
-FORMAL COMPLAINT REGARDING NON-PAYMENT OF MINIMUM WAGES
+def generate_complaint_letter(worker_name: str, sector: str, area: str, days: int, 
+                              hours: float, paid: float, expected: float, stolen: float) -> str:
+    return f"""FORMAL GRIEVANCE REGARDING WAGE THEFT & MINIMUM WAGE VIOLATION
 
 To,
-The Labour Officer,
-{area}
+The District Labour Officer / District Legal Services Authority (DLSA),
+Bengaluru Urban District, Karnataka.
 
-Applicant: {worker_name}
-Sector: {sector}
+Subject: Complaint under Section 20 of the Minimum Wages Act, 1948 & Code on Wages, 2019
 
 Respected Sir/Madam,
 
-I am writing to lodge a formal complaint regarding wage underpayment. 
+I am submitting this formal complaint on behalf of the affected informal sector worker detailed below:
 
-Details of Work:
-- Days Worked: {days_worked}
-- Average Hours per Day: {hours_per_day}
-- Amount Paid: ₹{amount_paid:.2f}
-- Prescribed Minimum Pay: ₹{expected_pay:.2f}
-- Total Stolen/Shortfall Wages: ₹{wage_stolen:.2f}
+1. WORKER DETAILS:
+   - Name: {worker_name}
+   - Sector: {sector}
+   - Work Location/Area: {area}, Bengaluru
 
-I request your immediate intervention to recover the shortfall of ₹{wage_stolen:.2f} as per the Minimum Wages Act.
+2. VIOLATION SUMMARY:
+   - Total Days Worked: {days} days
+   - Daily Working Hours: {hours} hours/day
+   - Total Amount Received: ₹{paid:.2f}
+   - Statutory Minimum Entitlement: ₹{expected:.2f}
+   - TOTAL STOLEN WAGES DEMANDED: ₹{stolen:.2f}
 
-Sincerely,
-{worker_name}
-    """.strip()
-    return letter
+3. LEGAL GROUNDS:
+   - Failure to pay statutory minimum rates under Karnataka Labour Department Notification.
+   - Non-payment of Overtime Wages at double the standard rate for hours worked beyond 8 hours daily.
+
+We request immediate intervention to cause an inquiry, recover unpaid wages along with statutory compensation, and take penal action against the employer.
+
+Date: 28/10/2026
+Submitted via: HaqPay Legal Grievance System
+"""
